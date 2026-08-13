@@ -140,25 +140,25 @@ svg {
 }
 
 html[data-theme="light"] {
-  --bg-base: #f2f3f9;
-  --bg-elevated: #ffffff;
-  --bg-glass: rgba(255, 255, 255, 0.55);
-  --bg-glass-strong: rgba(255, 255, 255, 0.78);
-  --bg-glass-hover: rgba(255, 255, 255, 0.9);
-  --border-glass: rgba(18, 20, 35, 0.08);
-  --border-glass-strong: rgba(18, 20, 35, 0.16);
+  --bg-base: #f5f4f1;
+  --bg-elevated: #f9f8f5;
+  --bg-glass: rgba(255, 255, 255, 0.72);
+  --bg-glass-strong: rgba(255, 255, 255, 0.84);
+  --bg-glass-hover: rgba(255, 255, 255, 0.92);
+  --border-glass: rgba(24, 29, 45, 0.08);
+  --border-glass-strong: rgba(24, 29, 45, 0.14);
 
   --text-primary: #12141f;
   --text-secondary: #4a4f63;
-  --text-muted: #82869a;
+  --text-muted: #70758a;
 
   --accent-primary: #6a4fe0;
   --accent-secondary: #0891a8;
   --accent-warm: #b5790a;
   --accent-success: #0d9c6c;
 
-  --shadow-glass: 0 8px 30px rgba(30, 35, 70, 0.1);
-  --shadow-glass-lg: 0 20px 55px rgba(30, 35, 70, 0.14);
+  --shadow-glass: 0 8px 30px rgba(30, 35, 70, 0.08);
+  --shadow-glass-lg: 0 20px 55px rgba(30, 35, 70, 0.12);
   --shadow-glow-primary: 0 0 40px rgba(var(--accent-primary-rgb), 0.14);
 
   color-scheme: light;
@@ -1633,11 +1633,14 @@ textarea:focus-visible {
   font-weight: 600;
   transition: all 0.2s ease;
   color: #fff;
+  opacity: 1;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 .social-btn svg {
   width: 22px;
   height: 22px;
   display: block;
+  color: inherit;
 }
 .social-btn--github {
   background: #171717;
@@ -1668,9 +1671,9 @@ textarea:focus-visible {
   font-size: 0.72rem;
   padding: 5px 10px;
   border-radius: 6px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-glass);
-  color: var(--text-primary);
+  background: rgba(17, 20, 28, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f5f7fb;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
@@ -1681,6 +1684,17 @@ textarea:focus-visible {
 .social-btn:hover .tooltip {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+html[data-theme="light"] .social-btn .tooltip {
+  background: rgba(15, 18, 25, 0.96);
+  color: #f5f7fb;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+html[data-theme="light"] .footer-col .social-row a.social-btn,
+html[data-theme="light"] .social-row a.social-btn {
+  opacity: 1;
+  filter: none;
+  box-shadow: 0 10px 22px rgba(25, 28, 35, 0.1);
 }
 .contact-form-card {
   padding: 36px;
