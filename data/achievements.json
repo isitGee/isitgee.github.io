@@ -1,12 +1,12 @@
 [
   {
     "icon": "ic-award",
-    "title": "[ADD ACHIEVEMENT]",
-    "desc": "[ADD A SHORT DESCRIPTION]"
+    "title": "[ACHIEVEMENT]",
+    "desc": "[SHORT DESCRIPTION]"
   },
   {
     "icon": "ic-trophy",
-    "title": "[ADD ACHIEVEMENT]",
-    "desc": "[ADD A SHORT DESCRIPTION]"
+    "title": "[ACHIEVEMENT]",
+    "desc": "[A SHORT DESCRIPTION]"
   }
 ]

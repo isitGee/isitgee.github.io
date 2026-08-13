@@ -3,7 +3,7 @@
     "institution": "University of Dar es Salaam — CoICT",
     "qualification": "BSc in Computer Science",
     "field": "Computer Science",
-    "start": "[ADD START YEAR]",
+    "start": "2024",
     "end": "Present",
     "location": "Dar es Salaam, Tanzania",
     "description": "Undergraduate studies covering software engineering, systems analysis and design, computer organization and architecture, algorithms, and formal logic — with a growing focus on practical, project-based learning.",
@@ -13,7 +13,9 @@
       "Object-Oriented Systems Analysis & Design",
       "Algorithms & Computability",
       "Mathematical Logic & Formal Semantics",
-      "Discrete Mathematics"
+      "Discrete Mathematics",
+      "Database systems",
+      "Computer networks"
     ]
   }
 ]

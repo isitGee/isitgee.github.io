@@ -2,61 +2,61 @@
   {
     "id": "example-project",
     "title": "[EXAMPLE] GEE PLAYS — Gaming Hub",
-    "description": "[ADD PROJECT DESCRIPTION] — Example entry showing the expected data shape. Replace or delete this once you add your real projects.",
+    "description": "[PROJECT DESCRIPTION] A gaming hub that allows users to explore, play, and share their favorite games. It features a user-friendly interface, game recommendations, and social sharing capabilities.",
     "category": "Web",
     "year": "2026",
     "status": "In Progress",
     "featured": true,
     "image": "",
     "tech": ["HTML", "CSS", "JavaScript"],
-    "github": "[ADD GITHUB REPO URL]",
-    "demo": "[ADD LIVE DEMO URL]",
+    "github": "[GITHUB REPO URL]",
+    "demo": "[LIVE DEMO URL]",
     "details": {
-      "problem": "[ADD PROBLEM] — what gap or need this project addresses.",
-      "solution": "[ADD SOLUTION] — how you approached solving it.",
-      "features": ["[ADD FEATURE 1]", "[ADD FEATURE 2]", "[ADD FEATURE 3]"],
-      "learned": "[ADD WHAT YOU LEARNED]",
-      "challenges": "[ADD CHALLENGES FACED AND HOW YOU SOLVED THEM]"
+      "problem": "[PROBLEM] — what gap or need this project addresses.",
+      "solution": "[SOLUTION] — how I approached solving it.",
+      "features": ["[FEATURE 1]", "[FEATURE 2]", "[FEATURE 3]"],
+      "learned": "[WHAT I LEARNED]",
+      "challenges": "[CHALLENGES FACED AND HOW I SOLVED THEM]"
     }
   },
   {
     "id": "add-project-2",
-    "title": "[ADD PROJECT NAME]",
-    "description": "[ADD PROJECT DESCRIPTION]",
+    "title": "[PROJECT NAME]",
+    "description": "[PROJECT DESCRIPTION]",
     "category": "Academic",
-    "year": "[ADD YEAR]",
+    "year": "[YEAR]",
     "status": "Planned",
     "featured": false,
     "image": "",
-    "tech": ["[ADD TECH]"],
+    "tech": ["[TECH]"],
     "github": "",
     "demo": "",
     "details": {
-      "problem": "[ADD PROBLEM]",
-      "solution": "[ADD SOLUTION]",
-      "features": ["[ADD FEATURE]"],
-      "learned": "[ADD WHAT YOU LEARNED]",
-      "challenges": "[ADD CHALLENGES]"
+      "problem": "[PROBLEM]",
+      "solution": "[SOLUTION]",
+      "features": ["[FEATURE 1]", "[FEATURE 2]", "[FEATURE 3]"],
+      "learned": "[WHAT I LEARNED]",
+      "challenges": "[CHALLENGES FACED AND HOW I SOLVED THEM]"
     }
   },
   {
     "id": "add-project-3",
-    "title": "[ADD PROJECT NAME]",
-    "description": "[ADD PROJECT DESCRIPTION]",
+    "title": "[PROJECT NAME]",
+    "description": "[PROJECT DESCRIPTION]",
     "category": "Networking",
-    "year": "[ADD YEAR]",
+    "year": "[YEAR]",
     "status": "Planned",
     "featured": false,
     "image": "",
-    "tech": ["[ADD TECH]"],
+    "tech": ["[TECH]"],
     "github": "",
     "demo": "",
     "details": {
-      "problem": "[ADD PROBLEM]",
-      "solution": "[ADD SOLUTION]",
-      "features": ["[ADD FEATURE]"],
-      "learned": "[ADD WHAT YOU LEARNED]",
-      "challenges": "[ADD CHALLENGES]"
+      "problem": "[PROBLEM]",
+      "solution": "[SOLUTION]",
+      "features": ["[FEATURE 1]", "[FEATURE 2]", "[FEATURE 3]"],
+      "learned": "[WHAT I LEARNED]",
+      "challenges": "[CHALLENGES FACED AND HOW I SOLVED THEM]"
     }
   }
 ]
