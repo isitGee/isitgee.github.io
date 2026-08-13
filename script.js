@@ -628,10 +628,19 @@ function renderContactInfo() {
     )
     .join("");
 
-  const socials = Object.values(CONFIG.social || {})
-    .map((s) => {
+  const brandIcons = {
+    github: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.21 11.4c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.83 1.24 1.83 1.24 1.07 1.84 2.8 1.31 3.48 1 .11-.78.42-1.31.76-1.61-2.66-.31-5.47-1.33-5.47-5.9 0-1.31.47-2.38 1.23-3.22-.13-.31-.54-1.53.12-3.18 0 0 1-.32 3.3 1.22A11.1 11.1 0 0 1 12 6.9c1.01 0 2.02.14 2.97.41 2.29-1.54 3.29-1.22 3.29-1.22.66 1.66.25 2.87.12 3.18.76.84 1.22 1.91 1.22 3.22 0 4.58-2.81 5.58-5.49 5.9.43.37.82 1.1.82 2.22v3.29c0 .32.21.69.82.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>`,
+    linkedin: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12Zm-1.3 1.76h2.6v8.7h-2.6v-8.7Zm4.23 0h2.49v1.18h.04c.35-.66 1.2-1.35 2.47-1.35 2.65 0 3.14 1.74 3.14 4V18.9h-2.6v-16.7?"/></svg>`,
+    instagram: `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.7" y="2.7" width="18.6" height="18.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.25" cy="6.75" r="1.35" fill="currentColor"/></svg>`,
+    tiktok: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.6 2.5c.3 1.7 1.4 2.9 3.1 3.3v2.4c-1.1 0-2.1-.3-2.9-.8v6.1c0 2.8-2.2 5.1-4.9 5.1s-4.8-2.2-4.8-5c0-2.8 2.2-5.1 4.9-5.1.3 0 .6 0 .9.1v2.7a2.8 2.8 0 0 0-.9-.2c-1.4 0-2.5 1.2-2.5 2.6 0 1.4 1.1 2.6 2.5 2.6 1.4 0 2.5-1.2 2.5-2.6V2.5h2.1Z"/></svg>`,
+    whatsapp: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.1A9.9 9.9 0 0 0 3.2 16l-1 3.7 3.8-1A9.9 9.9 0 1 0 12 2.1Zm5.7 14.2c-.2.5-1.2 1.1-1.7 1.2-.4.1-1 .1-3.1-.7-2.7-1-4.4-3.7-4.6-3.9-.2-.2-1.6-2.1-1.6-4.1 0-2 .9-3 1.3-3.4.3-.4.7-.5 1-.5h.7c.2 0 .5 0 .7.5l1 2.4c.1.3.1.5 0 .8l-.4.8c-.2.2-.4.5-.6.7-.2.3-.3.5-.2.9.2.3.9 1.4 1.9 2.3 1.3 1.2 2.5 1.7 2.9 1.9.4.2.7.1 1-.2.3-.3.8-.9 1.1-1.2.3-.3.6-.4 1-.2l2.4.9c.3.1.6.2.7.5.1.3.1.6 0 .8l-1 1.4Z"/></svg>`,
+  };
+
+  const socials = Object.entries(CONFIG.social || {})
+    .map(([key, s]) => {
       const l = safeLink(s.url, s.label);
-      return `<a class="social-btn" href="${esc(l.href)}" ${l.disabled ? 'aria-disabled="true" title="Add your ' + esc(s.label) + ' URL in data/profile.json"' : 'target="_blank" rel="noopener"'}>${esc(s.handle)}<span class="tooltip">${esc(s.label)}</span></a>`;
+      const icon = brandIcons[key] || `<span class="social-letter">${esc(s.handle)}</span>`;
+      return `<a class="social-btn social-btn--${esc(key)}" href="${esc(l.href)}" ${l.disabled ? 'aria-disabled="true" title="Add your ' + esc(s.label) + ' URL in data/profile.json"' : 'target="_blank" rel="noopener"'}>${icon}<span class="tooltip">${esc(s.label)}</span></a>`;
     })
     .join("");
 

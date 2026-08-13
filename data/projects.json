@@ -29,8 +29,8 @@
     "featured": false,
     "image": "",
     "tech": ["[TECH]"],
-    "github": "",
-    "demo": "",
+    "github": "[GITHUB REPO URL]",
+    "demo": "[LIVE DEMO URL]",
     "details": {
       "problem": "[PROBLEM]",
       "solution": "[SOLUTION]",
@@ -49,8 +49,8 @@
     "featured": false,
     "image": "",
     "tech": ["[TECH]"],
-    "github": "",
-    "demo": "",
+    "github": "[GITHUB REPO URL]",
+    "demo": "[LIVE DEMO URL]",
     "details": {
       "problem": "[PROBLEM]",
       "solution": "[SOLUTION]",
