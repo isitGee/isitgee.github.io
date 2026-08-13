@@ -10,10 +10,10 @@
     "cvPath": "/assets/cv.pdf",
     "githubUsername": "isitGee",
     "social": {
-      "github": { "label": "GitHub", "handle": "GH", "url": "[GITHUB URL]" },
+      "github": { "label": "GitHub", "handle": "GH", "url": "https://github.com/isitGee" },
       "linkedin": { "label": "LinkedIn", "handle": "in", "url": "[LINKEDIN URL]" },
       "instagram": { "label": "Instagram", "handle": "IG", "url": "[INSTAGRAM URL]" },
-      "tiktok": { "label": "TikTok", "handle": "TT", "url": "[TIKTOK URL]" },
+      "tiktok": { "label": "TikTok", "handle": "TT", "url": "https://www.tiktok.com/@isitgee_" },
       "whatsapp": { "label": "WhatsApp", "handle": "WA", "url": "https://wa.me/255762358050" }
     }
   },
@@ -32,7 +32,7 @@
     { "label": "Degree", "value": "BSc in Computer Science" },
     { "label": "Status", "value": "University Student" },
     { "label": "Field", "value": "Computer Science" },
-    { "label": "Interests", "value": "Software Development, Networking, UI/UX, Technology" },
+    { "label": "Interests", "value": "Software Development, Networking, UI/UX, Information Technology" },
     { "label": "Location", "value": "Tanzania" }
   ]
 }

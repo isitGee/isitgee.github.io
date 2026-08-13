@@ -1,12 +1,22 @@
 [
   {
-    "org": "[ORGANIZATION NAME]",
-    "position": "[POSITION / ROLE]",
-    "location": "[LOCATION]",
-    "start": "[START DATE]",
-    "end": "[END DATE / Present]",
-    "description": "[SHORT DESCRIPTION OF THIS ROLE]",
-    "responsibilities": ["[RESPONSIBILITY]", "[ADD RESPONSIBILITY]"],
-    "tech": ["[TECHNOLOGY USED]"]
+    "org": "TTCL ARUSHA",
+    "position": "INTERN Networking Sales & Marketing",
+    "location": "Arusha, Tanzania",
+    "start": "2025",
+    "end": "2025",
+    "description": "Internship role in the Networking Sales & Marketing department, gaining hands-on experience in sales strategies and marketing initiatives.",
+    "responsibilities": ["Introducing GPON (fibre optic) network service to customers", "Registering new customers for GPON network service", "Providing technical support and troubleshooting for GPON network service"],
+    "tech": ["networking", "sales", "marketing", "customer service"]
+  },
+  {
+    "org": "UDSM COICT",
+    "position": "Field in Networking",
+    "location": "Dar es Salaam, Tanzania",
+    "start": "2026",
+    "end": "2026",
+    "description": "Fieldwork experience in Networking, focusing on practical applications of networking concepts and technologies.",
+    "responsibilities": ["Conducting network setup and configuration", "Troubleshooting network issues", "Implementing security measures for network protection"],
+    "tech": ["networking", "security"]
   }
 ]

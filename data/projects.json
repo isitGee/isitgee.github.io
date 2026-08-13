@@ -1,8 +1,8 @@
 [
   {
-    "id": "example-project",
-    "title": "[EXAMPLE] GEE PLAYS — Gaming Hub",
-    "description": "[PROJECT DESCRIPTION] A gaming hub that allows users to explore, play, and share their favorite games. It features a user-friendly interface, game recommendations, and social sharing capabilities.",
+    "id": "Project 01",
+    "title": "GEE PLAYS — Gaming Hub",
+    "description": "A gaming hub that allows users to explore, play, and share their favorite games. It features a user-friendly interface, game recommendations, and social sharing capabilities.",
     "category": "Web",
     "year": "2026",
     "status": "In Progress",
@@ -12,15 +12,15 @@
     "github": "[GITHUB REPO URL]",
     "demo": "[LIVE DEMO URL]",
     "details": {
-      "problem": "[PROBLEM] — what gap or need this project addresses.",
-      "solution": "[SOLUTION] — how I approached solving it.",
+      "problem": "[PROBLEM] what gap or need this project addresses.",
+      "solution": "[SOLUTION] how I approached solving it.",
       "features": ["[FEATURE 1]", "[FEATURE 2]", "[FEATURE 3]"],
       "learned": "[WHAT I LEARNED]",
       "challenges": "[CHALLENGES FACED AND HOW I SOLVED THEM]"
     }
   },
   {
-    "id": "add-project-2",
+    "id": "Project 02",
     "title": "[PROJECT NAME]",
     "description": "[PROJECT DESCRIPTION]",
     "category": "Academic",
@@ -40,7 +40,7 @@
     }
   },
   {
-    "id": "add-project-3",
+    "id": "Project 03",
     "title": "[PROJECT NAME]",
     "description": "[PROJECT DESCRIPTION]",
     "category": "Networking",
