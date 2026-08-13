@@ -669,7 +669,7 @@ function initTheme() {
 function initNav() {
   const nav = $("#navbar");
   const sections = $$("main section[id]");
-  const navLinks = $$("#navLinks a, .mobile-menu a");
+  const navLinks = $$("#navLinks a, .mobile-nav-link");
 
   const onScroll = () => {
     nav.classList.toggle("is-scrolled", window.scrollY > 40);
@@ -678,17 +678,18 @@ function initNav() {
     sections.forEach((sec) => {
       if (sec.offsetTop <= scrollPos) current = sec.id;
     });
-    navLinks.forEach((a) =>
-      a.classList.toggle("is-active", a.getAttribute("href") === `#${current}`),
-    );
+    navLinks.forEach((a) => {
+      const href = a.getAttribute("href") || a.dataset.target || "";
+      a.classList.toggle("is-active", href === `#${current}`);
+    });
   };
   document.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
   navLinks.forEach((a) =>
     a.addEventListener("click", (e) => {
-      const id = a.getAttribute("href");
-      if (!id.startsWith("#")) return;
+      const id = a.getAttribute("href") || a.dataset.target;
+      if (!id || !id.startsWith("#")) return;
       const target = $(id);
       if (!target) return;
       e.preventDefault();

@@ -605,7 +605,7 @@ html[data-theme="light"] .icon-moon {
   transform: translateX(0);
   box-shadow: -18px 0 36px rgba(0, 0, 0, 0.24);
 }
-.mobile-menu a {
+.mobile-menu .mobile-nav-link {
   width: 100%;
   font-family: var(--font-display);
   font-size: 1.18rem;
@@ -615,17 +615,18 @@ html[data-theme="light"] .icon-moon {
   border-radius: 12px;
   opacity: 0;
   transform: translateX(18px);
+  text-align: left;
   transition:
     opacity 0.35s var(--ease),
     transform 0.35s var(--ease),
     color 0.2s ease,
     background 0.2s ease;
 }
-.mobile-menu.is-open a {
+.mobile-menu.is-open .mobile-nav-link {
   opacity: 1;
   transform: translateX(0);
 }
-.mobile-menu a:hover {
+.mobile-menu .mobile-nav-link:hover {
   color: var(--text-primary);
   background: var(--bg-glass);
 }
