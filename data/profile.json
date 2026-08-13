@@ -1,0 +1,38 @@
+{
+  "config": {
+    "name": "Gee",
+    "fullName": "[ADD YOUR FULL NAME]",
+    "tagline": "Computer Science Student • Developer • UI/UX Enthusiast • Tech Explorer",
+    "heroDescription": "I'm studying Computer Science at the University of Dar es Salaam, sharpening my skills in software development, networking, and design. I build projects to learn by doing, experiment with new technologies, and I'm steadily working toward becoming a well-rounded tech professional — one commit at a time.",
+    "email": "[ADD YOUR EMAIL]",
+    "phone": "[ADD YOUR PHONE NUMBER]",
+    "location": "Dar es Salaam, Tanzania",
+    "cvPath": "/assets/cv.pdf",
+    "githubUsername": "[ADD GITHUB USERNAME]",
+    "social": {
+      "github": { "label": "GitHub", "handle": "GH", "url": "[ADD GITHUB URL]" },
+      "linkedin": { "label": "LinkedIn", "handle": "in", "url": "[ADD LINKEDIN URL]" },
+      "instagram": { "label": "Instagram", "handle": "IG", "url": "[ADD INSTAGRAM URL]" },
+      "tiktok": { "label": "TikTok", "handle": "TT", "url": "[ADD TIKTOK URL]" },
+      "whatsapp": { "label": "WhatsApp", "handle": "WA", "url": "[ADD WHATSAPP LINK]" }
+    }
+  },
+  "techBadges": [
+    { "label": "Java", "color": "#f0b429" },
+    { "label": "Python", "color": "#22d3ee" },
+    { "label": "JavaScript", "color": "#f0b429" },
+    { "label": "HTML", "color": "#f87171" },
+    { "label": "CSS", "color": "#7c6cf0" },
+    { "label": "SQL", "color": "#34d399" },
+    { "label": "Git", "color": "#f87171" },
+    { "label": "GitHub", "color": "#a3aac0" },
+    { "label": "Networking", "color": "#22d3ee" }
+  ],
+  "quickFacts": [
+    { "label": "Degree", "value": "BSc in Computer Science" },
+    { "label": "Status", "value": "University Student" },
+    { "label": "Field", "value": "Computer Science" },
+    { "label": "Interests", "value": "Software Development, Networking, UI/UX, Technology" },
+    { "label": "Location", "value": "Tanzania" }
+  ]
+}

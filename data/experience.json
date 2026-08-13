@@ -1,0 +1,12 @@
+[
+  {
+    "org": "[ADD ORGANIZATION NAME]",
+    "position": "[ADD POSITION / ROLE]",
+    "location": "[ADD LOCATION]",
+    "start": "[ADD START DATE]",
+    "end": "[ADD END DATE / Present]",
+    "description": "[ADD A SHORT DESCRIPTION OF THIS ROLE]",
+    "responsibilities": ["[ADD RESPONSIBILITY]", "[ADD RESPONSIBILITY]"],
+    "tech": ["[ADD TECHNOLOGY USED]"]
+  }
+]
