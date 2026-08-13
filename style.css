@@ -458,14 +458,11 @@ html[data-theme="light"] #network-canvas {
   width: 38px;
   height: 38px;
   border-radius: 11px;
-  background: var(--grad-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-family: var(--font-display);
-  font-weight: 700;
+  display: block;
+  object-fit: cover;
   box-shadow: var(--shadow-glow-primary);
+  background: var(--bg-glass-strong);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 .nav-links {
   display: flex;
