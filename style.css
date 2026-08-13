@@ -1615,11 +1615,13 @@ textarea:focus-visible {
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 6px;
+  align-items: center;
+  justify-content: center;
 }
 .social-btn {
   position: relative;
-  width: 48px;
-  height: 48px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1633,8 +1635,8 @@ textarea:focus-visible {
   color: #fff;
 }
 .social-btn svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: block;
 }
 .social-btn--github {
@@ -1668,6 +1670,7 @@ textarea:focus-visible {
   border-radius: 6px;
   background: var(--bg-elevated);
   border: 1px solid var(--border-glass);
+  color: var(--text-primary);
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
