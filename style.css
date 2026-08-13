@@ -1659,6 +1659,8 @@ textarea:focus-visible {
   height: 22px;
   display: block;
   color: inherit;
+  fill: currentColor;
+  stroke: currentColor;
 }
 .social-btn--github {
   background: #171717;
@@ -1781,6 +1783,13 @@ html[data-theme="light"] .social-row a.social-btn {
 .footer-col .social-row a.social-btn {
   display: inline-flex;
   margin-bottom: 0;
+  color: #fff;
+}
+.footer-col .social-row a.social-btn svg,
+.social-row a.social-btn svg {
+  color: #fff;
+  fill: currentColor;
+  stroke: currentColor;
 }
 .footer-bottom {
   display: flex;
