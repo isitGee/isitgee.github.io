@@ -52,8 +52,8 @@ body {
   background: var(--bg-base);
   color: var(--text-primary);
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   transition:
     background-color 0.4s ease,
@@ -193,13 +193,13 @@ h4 {
   box-shadow: 0 0 10px var(--accent-secondary);
 }
 .section-title {
-  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
   margin: 0.5rem 0 0.9rem;
 }
 .section-sub {
   color: var(--text-secondary);
   max-width: 620px;
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   margin-bottom: 2.75rem;
 }
 .section-head {
@@ -804,13 +804,13 @@ textarea:focus-visible {
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 5.2vw, 4rem);
-  line-height: 1.08;
+  font-size: clamp(2.8rem, 5.6vw, 4.3rem);
+  line-height: 1.06;
   margin-bottom: 20px;
 }
 .hero-title .line2 {
   color: var(--text-secondary);
-  font-size: 0.55em;
+  font-size: 0.58em;
   display: block;
   margin-top: 10px;
   font-weight: 500;
@@ -823,8 +823,8 @@ textarea:focus-visible {
 }
 .hero-desc {
   color: var(--text-secondary);
-  font-size: 1.08rem;
-  max-width: 540px;
+  font-size: 1.14rem;
+  max-width: 560px;
   margin-bottom: 34px;
 }
 .hero-actions {
@@ -1604,7 +1604,7 @@ textarea:focus-visible {
   color: var(--text-muted);
 }
 .contact-row .ci-value {
-  font-size: 0.95rem;
+  font-size: 1rem;
   word-break: break-word;
 }
 .contact-row a.ci-value:hover {
@@ -1618,8 +1618,8 @@ textarea:focus-visible {
 }
 .social-btn {
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1627,14 +1627,14 @@ textarea:focus-visible {
   background: var(--bg-glass);
   border: 1px solid var(--border-glass);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 600;
   transition: all 0.2s ease;
   color: #fff;
 }
 .social-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   display: block;
 }
 .social-btn--github {
@@ -1943,8 +1943,23 @@ textarea:focus-visible {
   :root {
     --nav-h: 72px;
   }
+  body {
+    font-size: 17px;
+  }
   .section {
     padding: 76px 0;
+  }
+  .section-title {
+    font-size: clamp(1.9rem, 7vw, 2.6rem);
+  }
+  .section-sub {
+    font-size: 1rem;
+  }
+  .hero-title {
+    font-size: clamp(2.6rem, 11vw, 3.6rem);
+  }
+  .hero-desc {
+    font-size: 1.08rem;
   }
   .avatar-card {
     width: 230px;
@@ -1982,6 +1997,14 @@ textarea:focus-visible {
   }
   .hero-meta {
     gap: 18px;
+  }
+  .social-btn {
+    width: 52px;
+    height: 52px;
+  }
+  .social-btn svg {
+    width: 22px;
+    height: 22px;
   }
   .footer-top {
     flex-direction: column;
