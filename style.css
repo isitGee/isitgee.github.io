@@ -572,50 +572,67 @@ html[data-theme="light"] .icon-moon {
 
 .mobile-menu {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  width: min(82vw, 320px);
+  height: 100vh;
   z-index: 999;
-  background: var(--bg-base);
-  backdrop-filter: blur(24px);
+  background: var(--bg-glass-strong);
+  border-left: 1px solid var(--border-glass);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 8px;
+  padding: 24px 22px 28px;
+  box-shadow: -16px 0 34px rgba(0, 0, 0, 0.2);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-12px);
+  pointer-events: none;
+  transform: translateX(104%);
   transition:
     opacity var(--dur-med) var(--ease),
     transform var(--dur-med) var(--ease),
-    visibility var(--dur-med);
+    visibility var(--dur-med),
+    box-shadow var(--dur-med) var(--ease);
 }
 .mobile-menu.is-open {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  pointer-events: auto;
+  transform: translateX(0);
+  box-shadow: -18px 0 36px rgba(0, 0, 0, 0.24);
 }
 .mobile-menu a {
+  width: 100%;
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.18rem;
   font-weight: 600;
-  padding: 12px 0;
+  padding: 12px 10px;
   color: var(--text-secondary);
+  border-radius: 12px;
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateX(18px);
   transition:
-    opacity 0.4s var(--ease),
-    transform 0.4s var(--ease),
-    color 0.2s ease;
+    opacity 0.35s var(--ease),
+    transform 0.35s var(--ease),
+    color 0.2s ease,
+    background 0.2s ease;
 }
 .mobile-menu.is-open a {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 .mobile-menu a:hover {
   color: var(--text-primary);
+  background: var(--bg-glass);
 }
 .mobile-menu .btn {
   margin-top: 18px;
+  width: 100%;
+  justify-content: center;
 }
 
 /* ---------- 8. Buttons & form ---------- */
