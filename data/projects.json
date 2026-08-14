@@ -9,8 +9,8 @@
     "featured": true,
     "image": "",
     "tech": ["HTML", "CSS", "JavaScript"],
-    "github": "[https://github.com/isitGee/GeePlays]",
-    "demo": "[https://isitgee.github.io/GeePlays/]",
+    "github": "https://github.com/isitGee/GeePlays",
+    "demo": "https://isitgee.github.io/GeePlays/",
     "details": {
       "problem": "[PROBLEM] what gap or need this project addresses.",
       "solution": "[SOLUTION] how I approached solving it.",
