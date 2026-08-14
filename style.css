@@ -1563,15 +1563,22 @@ textarea:focus-visible {
   height: 22px;
 }
 
-/* ---------- 17. GitHub placeholder ---------- */
+/* ---------- 17. GitHub activity ---------- */
 .gh-panel {
-  padding: 40px;
+  padding: 32px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 22px;
+}
+.gh-panel-header {
+  display: flex;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
-  border-style: dashed;
+}
+.gh-panel-text {
+  max-width: 600px;
 }
 .gh-panel-text h3 {
   font-family: var(--font-display);
@@ -1581,6 +1588,69 @@ textarea:focus-visible {
   color: var(--text-secondary);
   font-size: 0.9rem;
   max-width: 480px;
+}
+.gh-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.gh-repo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 18px 16px;
+  min-height: 180px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.gh-repo:hover {
+  transform: translateY(-2px);
+  border-color: rgba(138, 150, 255, 0.5);
+}
+.gh-repo-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.gh-repo-name {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+.gh-repo-top svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent-secondary);
+}
+.gh-repo p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+.gh-repo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-top: auto;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+.gh-repo-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.gh-repo-meta svg {
+  width: 12px;
+  height: 12px;
+}
+#ghProfileLink.is-disabled {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 /* ---------- 18. Contact ---------- */

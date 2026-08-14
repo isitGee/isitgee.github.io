@@ -654,31 +654,31 @@
       </section>
 
       <!-- ============================================================
-       GITHUB PLACEHOLDER
+       GITHUB ACTIVITY
   ============================================================ -->
       <section class="section section--tight">
         <div class="container">
           <div class="gh-panel glass" data-reveal>
-            <div class="gh-panel-text">
-              <h3>Live GitHub activity — coming soon</h3>
-              <p>
-                This panel is wired up to display real repositories, languages,
-                and stars once the GitHub username below is set. No API key
-                required — see the
-                <code class="mono">renderGithubPlaceholder()</code> function in
-                the script for the ready-to-enable fetch snippet.
-              </p>
+            <div class="gh-panel-header">
+              <div class="gh-panel-text">
+                <h3>Live GitHub activity</h3>
+                <p>
+                  Recent public repositories, language highlights, and project
+                  updates from the GitHub profile linked below.
+                </p>
+              </div>
+              <a
+                href="#"
+                class="btn btn-glass"
+                id="ghProfileLink"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg aria-hidden="true"><use href="#ic-external" /></svg> View
+                GitHub Profile
+              </a>
             </div>
-            <a
-              href="#"
-              class="btn btn-glass"
-              id="ghProfileLink"
-              target="_blank"
-              rel="noopener"
-            >
-              <svg aria-hidden="true"><use href="#ic-external" /></svg> View
-              GitHub Profile
-            </a>
+            <div class="gh-grid" id="ghRepos"></div>
           </div>
         </div>
       </section>

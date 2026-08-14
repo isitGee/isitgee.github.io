@@ -558,38 +558,74 @@ function renderCertificates() {
 }
 
 function renderAchievements() {
-  $("#achieveGrid").innerHTML =
-    ACHIEVEMENTS.map(
-      (a) => `
+  $("#achieveGrid").innerHTML = ACHIEVEMENTS.map(
+    (a) => `
     <div class="achieve-card glass tilt">
       <span class="achieve-icon"><svg aria-hidden="true"><use href="#${a.icon}"/></svg></span>
       <h3 class="achieve-title">${esc(a.title)}</h3>
       <p class="achieve-desc">${esc(a.desc)}</p>
     </div>
   `,
-    ).join("") +
-    `
-    <div class="achieve-card achieve-card--ghost glass">
-      <svg aria-hidden="true"><use href="#ic-trophy"/></svg>
-      <span>Add your next milestone to data/achievements.json</span>
-    </div>
-  `;
+  ).join("");
 }
 
-/*
-  GITHUB PLACEHOLDER — ready to enable.
-  Once CONFIG.githubUsername (in data/profile.json) is set to a real
-  username, you can swap this function's body for something like:
-
-  fetch(`https://api.github.com/users/${CONFIG.githubUsername}/repos?sort=updated&per_page=6`)
-    .then(r => r.json())
-    .then(repos => { ...render repos into a grid, no API key needed for public data... });
-*/
-function renderGithubPlaceholder() {
+async function renderGithubPlaceholder() {
   const link = $("#ghProfileLink");
   const gh = safeLink(CONFIG.social.github?.url, "View GitHub Profile");
+  const username = CONFIG.githubUsername || "";
+
   link.href = gh.href;
-  if (gh.disabled) link.setAttribute("aria-disabled", "true");
+  link.setAttribute("aria-disabled", gh.disabled ? "true" : "false");
+  link.classList.toggle("is-disabled", gh.disabled);
+
+  const container = $("#ghRepos");
+  if (!container) return;
+
+  if (!username || gh.disabled) {
+    container.innerHTML = `<p class="empty-note">GitHub profile not configured yet.</p>`;
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `https://api.github.com/users/${encodeURIComponent(username)}/repos?sort=updated&per_page=6`,
+      { headers: { Accept: "application/vnd.github+json" } },
+    );
+
+    if (!response.ok) {
+      throw new Error(`GitHub API request failed: ${response.status}`);
+    }
+
+    const repos = await response.json();
+    const publicRepos = (Array.isArray(repos) ? repos : []).filter((repo) => !repo.fork);
+
+    if (!publicRepos.length) {
+      container.innerHTML = `<p class="empty-note">No public repositories yet.</p>`;
+      return;
+    }
+
+    container.innerHTML = publicRepos
+      .map(
+        (repo) => `
+          <a class="gh-repo glass" href="${esc(repo.html_url || "#")}" target="_blank" rel="noopener" aria-label="Open ${esc(repo.name)} on GitHub">
+            <div class="gh-repo-top">
+              <span class="gh-repo-name">${esc(repo.name)}</span>
+              <svg aria-hidden="true"><use href="#ic-external"/></svg>
+            </div>
+            <p>${esc(repo.description || "No description provided.")}</p>
+            <div class="gh-repo-meta">
+              <span><svg aria-hidden="true"><use href="#ic-code"/></svg>${esc(repo.language || "Unknown")}</span>
+              <span><svg aria-hidden="true"><use href="#ic-star"/></svg>${esc(repo.stargazers_count ?? 0)}</span>
+              <span><svg aria-hidden="true"><use href="#ic-git-branch"/></svg>${esc(repo.forks_count ?? 0)}</span>
+            </div>
+          </a>
+        `,
+      )
+      .join("");
+  } catch (error) {
+    console.error("Could not load GitHub repos:", error);
+    container.innerHTML = `<p class="empty-note">GitHub activity could not be loaded right now.</p>`;
+  }
 }
 
 function renderContactInfo() {
