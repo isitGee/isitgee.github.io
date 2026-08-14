@@ -2060,6 +2060,20 @@ html[data-theme="light"] .social-row a.social-btn {
   body {
     font-size: 17px;
   }
+  .gh-panel {
+    padding: 20px;
+  }
+  .gh-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .gh-grid {
+    grid-template-columns: 1fr;
+  }
+  .gh-repo {
+    min-height: 0;
+    padding: 16px;
+  }
   .section {
     padding: 76px 0;
   }
