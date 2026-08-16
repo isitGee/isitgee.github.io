@@ -12,11 +12,11 @@
     "github": "https://github.com/isitGee/GeePlays",
     "demo": "https://isitgee.github.io/GeePlays/",
     "details": {
-      "problem": "[PROBLEM] what gap or need this project addresses.",
-      "solution": "[SOLUTION] how I approached solving it.",
-      "features": ["[FEATURE 1]", "[FEATURE 2]", "[FEATURE 3]"],
-      "learned": "[WHAT I LEARNED]",
-      "challenges": "[CHALLENGES FACED AND HOW I SOLVED THEM]"
+      "problem": "The website helps gamers find and play games easily, providing a platform for game discovery and social interaction.",
+      "solution": "Directly access a curated list of games, read reviews, and share experiences with other gamers.",
+      "features": ["Search functionality", "Game recommendations", "Social sharing"],
+      "learned": "Hosting and deploying a web application, and implementing responsive design for various devices.",
+      "challenges": "Managing game data and ensuring the website remains responsive across different screen sizes. solving this by using media queries and testing on multiple devices."
     }
   },
   {
