@@ -10,29 +10,91 @@
     "cvPath": "/assets/George_Mwanga_CV.pdf",
     "githubUsername": "isitGee",
     "social": {
-      "github": { "label": "GitHub", "handle": "GH", "url": "https://github.com/isitGee" },
-      "linkedin": { "label": "LinkedIn", "handle": "in", "url": "[LINKEDIN URL]" },
-      "instagram": { "label": "Instagram", "handle": "IG", "url": "[INSTAGRAM URL]" },
-      "tiktok": { "label": "TikTok", "handle": "TT", "url": "https://www.tiktok.com/@isitgee_" },
-      "whatsapp": { "label": "WhatsApp", "handle": "WA", "url": "https://wa.me/255762358050" }
+      "github": {
+        "label": "GitHub",
+        "handle": "GH",
+        "url": "https://github.com/isitGee"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "handle": "in",
+        "url": "[LINKEDIN URL]"
+      },
+      "instagram": {
+        "label": "Instagram",
+        "handle": "IG",
+        "url": "[INSTAGRAM URL]"
+      },
+      "tiktok": {
+        "label": "TikTok",
+        "handle": "TT",
+        "url": "https://www.tiktok.com/@isitgee_"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "handle": "WA",
+        "url": "https://wa.me/255762358050"
+      }
     }
   },
   "techBadges": [
-    { "label": "Java", "color": "#f0b429" },
-    { "label": "Python", "color": "#22d3ee" },
-    { "label": "JavaScript", "color": "#f0b429" },
-    { "label": "HTML", "color": "#f87171" },
-    { "label": "CSS", "color": "#7c6cf0" },
-    { "label": "SQL", "color": "#34d399" },
-    { "label": "Git", "color": "#f87171" },
-    { "label": "GitHub", "color": "#a3aac0" },
-    { "label": "Networking", "color": "#22d3ee" }
+    {
+      "label": "Java",
+      "color": "#f0b429"
+    },
+    {
+      "label": "Python",
+      "color": "#22d3ee"
+    },
+    {
+      "label": "JavaScript",
+      "color": "#f0b429"
+    },
+    {
+      "label": "HTML",
+      "color": "#f87171"
+    },
+    {
+      "label": "CSS",
+      "color": "#7c6cf0"
+    },
+    {
+      "label": "SQL",
+      "color": "#34d399"
+    },
+    {
+      "label": "Git",
+      "color": "#f87171"
+    },
+    {
+      "label": "GitHub",
+      "color": "#a3aac0"
+    },
+    {
+      "label": "Networking",
+      "color": "#22d3ee"
+    }
   ],
   "quickFacts": [
-    { "label": "Degree", "value": "BSc in Computer Science" },
-    { "label": "Status", "value": "University Student" },
-    { "label": "Field", "value": "Computer Science" },
-    { "label": "Interests", "value": "Software Development, Networking, UI/UX, Information Technology" },
-    { "label": "Location", "value": "Tanzania" }
+    {
+      "label": "Degree",
+      "value": "BSc in Computer Science"
+    },
+    {
+      "label": "Status",
+      "value": "University Student"
+    },
+    {
+      "label": "Field",
+      "value": "Computer Science"
+    },
+    {
+      "label": "Interests",
+      "value": "Software Development, Networking, UI/UX, Information Technology"
+    },
+    {
+      "label": "Location",
+      "value": "Tanzania"
+    }
   ]
 }

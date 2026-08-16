@@ -251,8 +251,9 @@ function renderHeroBasics() {
   $("#footerYear").textContent = new Date().getFullYear();
 
   const cv = $("#downloadCvBtn");
-  cv.setAttribute("href", CONFIG.cvPath);
-  if (CONFIG.cvPath === "/assets/cv.pdf") {
+  cv.setAttribute("href", CONFIG.cvPath || "/assets/George_Mwanga_CV.pdf");
+  cv.setAttribute("download", "George_Mwanga_CV.pdf");
+  if (CONFIG.cvPath && CONFIG.cvPath.includes("cv.pdf")) {
     cv.title =
       "Placeholder path — replace CONFIG.cvPath with your real CV file";
   }
