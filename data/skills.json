@@ -7,17 +7,17 @@
       {
         "name": "Java",
         "icon": "ic-code",
-        "desc": "Core language for my OOP coursework — from inheritance to building small console applications."
+        "desc": "Core language for my OOP coursework from inheritance to building small console applications."
       },
       {
         "name": "Python",
         "icon": "ic-code",
-        "desc": "My go-to for scripting, quick problem-solving, and algorithm practice."
+        "desc": "My go to for scripting, quick problem solving, and algorithm practice."
       },
       {
         "name": "JavaScript",
         "icon": "ic-code",
-        "desc": "Used for interactivity on the web and, increasingly, for full front-end builds."
+        "desc": "Used for interactivity on the web and, increasingly, for full front end builds."
       },
       {
         "name": "HTML",
@@ -76,7 +76,7 @@
       {
         "name": "Computer Networks",
         "icon": "ic-network",
-        "desc": "Understanding how data actually moves — from the physical layer up."
+        "desc": "Understanding how data actually moves from the physical layer up."
       },
       {
         "name": "IP Addressing",
@@ -108,7 +108,7 @@
       {
         "name": "UI/UX Design",
         "icon": "ic-pen",
-        "desc": "Thinking about flow and usability before pixels — form should follow function."
+        "desc": "Thinking about flow and usability before pixels form should follow function."
       },
       {
         "name": "Figma",
@@ -140,7 +140,7 @@
       {
         "name": "Git",
         "icon": "ic-wrench",
-        "desc": "Version control for every project — branches, commits, and history that make sense."
+        "desc": "Version control for every project branches, commits, and history that make sense."
       },
       {
         "name": "GitHub",

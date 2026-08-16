@@ -7,7 +7,7 @@
     "year": "2026",
     "status": "In Progress",
     "featured": true,
-    "image": "",
+    "image": "assets/images/projects/GeePlays.png",
     "tech": ["HTML", "CSS", "JavaScript"],
     "github": "https://github.com/isitGee/GeePlays",
     "demo": "https://isitgee.github.io/GeePlays/",
