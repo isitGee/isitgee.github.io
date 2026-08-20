@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Contact Messages</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #ecf0f1;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid #00d4ff;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .header-meta {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: #bdc3c7;
+      flex-wrap: wrap;
+    }
+
+    .stat-badge {
+      background: rgba(0, 212, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: 4px;
+      border-left: 2px solid #00d4ff;
+    }
+
+    .stat-badge.warning {
+      border-left-color: #f39c12;
+      background: rgba(243, 156, 18, 0.1);
+    }
+
+    .login-box {
+      max-width: 400px;
+      margin: 50px auto;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 4px;
+      color: #ecf0f1;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #00d4ff;
+      color: #000;
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      background: #00a8cc;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(0, 212, 255, 0.2);
+      color: #00d4ff;
+      border: 1px solid #00d4ff;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 212, 255, 0.3);
+    }
+
+    .btn-danger {
+      background: #e74c3c;
+      color: white;
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .btn-danger:hover {
+      background: #c0392b;
+    }
+
+    .btn-small {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 10px;
+    }
+
+    .tab-btn {
+      padding: 8px 16px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 4px;
+      color: #ecf0f1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background: #00d4ff;
+      color: #000;
+      border-color: #00d4ff;
+    }
+
+    .messages-grid {
+      display: grid;
+      gap: 15px;
+    }
+
+    .message-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .message-card:hover {
+      border-color: rgba(0, 212, 255, 0.5);
+      background: rgba(0, 212, 255, 0.05);
+    }
+
+    .message-card.unread {
+      border-left: 4px solid #f39c12;
+      background: rgba(243, 156, 18, 0.05);
+    }
+
+    .message-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 12px;
+      gap: 10px;
+    }
+
+    .message-title {
+      flex: 1;
+    }
+
+    .message-title h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .message-from {
+      font-size: 13px;
+      color: #95a5a6;
+    }
+
+    .message-from a {
+      color: #00d4ff;
+      text-decoration: none;
+    }
+
+    .message-from a:hover {
+      text-decoration: underline;
+    }
+
+    .message-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .badge-unread {
+      background: #f39c12;
+      color: #000;
+    }
+
+    .badge-archived {
+      background: rgba(149, 165, 166, 0.3);
+      color: #bdc3c7;
+    }
+
+    .message-meta {
+      font-size: 12px;
+      color: #7f8c8d;
+      margin-top: 12px;
+    }
+
+    .message-content {
+      margin: 12px 0;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      border-left: 2px solid #00d4ff;
+      border-radius: 4px;
+      line-height: 1.5;
+    }
+
+    .message-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #7f8c8d;
+    }
+
+    .empty-state p {
+      font-size: 14px;
+    }
+
+    .alert {
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .alert.show {
+      display: block;
+    }
+
+    .alert-success {
+      background: rgba(46, 204, 113, 0.2);
+      border-left: 4px solid #2ecc71;
+      color: #2ecc71;
+    }
+
+    .alert-error {
+      background: rgba(231, 76, 60, 0.2);
+      border-left: 4px solid #e74c3c;
+      color: #e74c3c;
+    }
+
+    .alert-info {
+      background: rgba(0, 212, 255, 0.2);
+      border-left: 4px solid #00d4ff;
+      color: #00d4ff;
+    }
+
+    .logout-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .header-meta {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .message-header {
+        flex-direction: column;
+      }
+
+      .controls {
+        flex-direction: column;
+      }
+
+      .filter-tabs {
+        flex-direction: column;
+      }
+
+      .tab-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-box">
+      <h2>Admin Access</h2>
+      <div class="form-group">
+        <label for="adminToken">Admin Token</label>
+        <input
+          type="password"
+          id="adminToken"
+          placeholder="Enter your admin token"
+        />
+      </div>
+      <button class="btn btn-primary" onclick="login()">Login</button>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" style="display: none">
+      <button class="btn btn-secondary logout-btn" onclick="logout()">
+        Logout
+      </button>
+
+      <header>
+        <h1>📧 Contact Messages</h1>
+        <div class="header-meta">
+          <div class="stat-badge">
+            Total: <strong id="statTotal">0</strong>
+          </div>
+          <div class="stat-badge warning">
+            Unread: <strong id="statUnread">0</strong>
+          </div>
+          <div class="stat-badge">
+            Archived: <strong id="statArchived">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <div id="alert" class="alert"></div>
+
+      <div class="controls">
+        <div class="filter-tabs">
+          <button class="tab-btn active" onclick="filterMessages('active')">
+            Active
+          </button>
+          <button class="tab-btn" onclick="filterMessages('unread')">
+            Unread
+          </button>
+          <button class="tab-btn" onclick="filterMessages('archived')">
+            Archived
+          </button>
+          <button class="tab-btn" onclick="filterMessages('all')">
+            All
+          </button>
+        </div>
+        <button class="btn btn-secondary" onclick="loadMessages()">
+          🔄 Refresh
+        </button>
+      </div>
+
+      <div class="messages-grid" id="messagesContainer">
+        <div class="empty-state">
+          <p>Loading messages...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentFilter = "active";
+    let allMessages = [];
+
+    function showAlert(message, type = "info") {
+      const alert = document.getElementById("alert");
+      alert.className = `alert show alert-${type}`;
+      alert.textContent = message;
+      setTimeout(() => alert.classList.remove("show"), 5000);
+    }
+
+    function login() {
+      const token = document.getElementById("adminToken").value;
+      if (!token) {
+        showAlert("Please enter your admin token", "error");
+        return;
+      }
+      localStorage.setItem("adminToken", token);
+      loadAdminDashboard();
+    }
+
+    function logout() {
+      localStorage.removeItem("adminToken");
+      document.getElementById("adminDashboard").style.display = "none";
+      document.getElementById("loginScreen").style.display = "block";
+      document.getElementById("adminToken").value = "";
+    }
+
+    function getToken() {
+      return localStorage.getItem("adminToken");
+    }
+
+    async function loadAdminDashboard() {
+      const token = getToken();
+      if (!token) {
+        showAlert("No token found. Please login.", "error");
+        return;
+      }
+
+      try {
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("adminDashboard").style.display = "block";
+        await loadMessages();
+        await loadStats();
+      } catch (err) {
+        showAlert("Failed to load dashboard: " + err.message, "error");
+        logout();
+      }
+    }
+
+    async function loadMessages() {
+      const token = getToken();
+      const container = document.getElementById("messagesContainer");
+
+      try {
+        const response = await fetch(
+          `/api/messages?token=${encodeURIComponent(token)}`
+        );
+        if (!response.ok) throw new Error("Unauthorized or server error");
+
+        const data = await response.json();
+        allMessages = data.messages;
+        renderMessages(currentFilter);
+      } catch (err) {
+        showAlert("Failed to load messages: " + err.message, "error");
+        container.innerHTML = `<div class="empty-state"><p>Error loading messages</p></div>`;
+      }
+    }
+
+    async function loadStats() {
+      const token = getToken();
+      try {
+        const response = await fetch(
+          `/api/stats?token=${encodeURIComponent(token)}`
+        );
+        if (!response.ok) throw new Error("Failed to load stats");
+
+        const data = await response.json();
+        document.getElementById("statTotal").textContent = data.stats.total;
+        document.getElementById("statUnread").textContent = data.stats.unread;
+        document.getElementById("statArchived").textContent =
+          data.stats.archived;
+      } catch (err) {
+        console.error("Failed to load stats:", err);
+      }
+    }
+
+    function renderMessages(filter) {
+      currentFilter = filter;
+
+      // Update active tab
+      document
+        .querySelectorAll(".tab-btn")
+        .forEach((btn) => btn.classList.remove("active"));
+      event.target.classList.add("active");
+
+      let filtered = allMessages;
+      if (filter === "unread") {
+        filtered = allMessages.filter((m) => !m.read);
+      } else if (filter === "archived") {
+        filtered = allMessages.filter((m) => m.archived);
+      } else if (filter === "active") {
+        filtered = allMessages.filter((m) => !m.archived);
+      }
+
+      const container = document.getElementById("messagesContainer");
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <p>No messages to display</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered
+        .map((msg) => renderMessageCard(msg))
+        .join("");
+    }
+
+    function renderMessageCard(msg) {
+      const date = new Date(msg.timestamp);
+      const dateStr = date.toLocaleDateString() + " " + date.toLocaleTimeString(
+        [],
+        { hour: "2-digit", minute: "2-digit" }
+      );
+
+      const unreadClass = !msg.read ? "unread" : "";
+      const badges = [];
+      if (!msg.read) badges.push(`<span class="badge badge-unread">UNREAD</span>`);
+      if (msg.archived) badges.push(`<span class="badge badge-archived">ARCHIVED</span>`);
+
+      return `
+        <div class="message-card ${unreadClass}">
+          <div class="message-header">
+            <div class="message-title">
+              <h3>${escapeHtml(msg.subject)}</h3>
+              <div class="message-from">
+                From: <strong>${escapeHtml(msg.name)}</strong> — 
+                <a href="mailto:${escapeHtml(msg.email)}">${escapeHtml(msg.email)}</a>
+              </div>
+            </div>
+            <div class="message-badges">
+              ${badges.join("")}
+            </div>
+          </div>
+          
+          <div class="message-content">
+            ${escapeHtml(msg.message).replace(/\n/g, "<br>")}
+          </div>
+
+          <div class="message-meta">
+            Received: ${dateStr}
+          </div>
+
+          <div class="message-actions">
+            ${!msg.read ? `<button class="btn btn-secondary btn-small" onclick="markRead('${msg.id}')">✓ Mark as Read</button>` : ""}
+            ${msg.archived ? `<button class="btn btn-secondary btn-small" onclick="unarchive('${msg.id}')">Restore</button>` : `<button class="btn btn-secondary btn-small" onclick="archive('${msg.id}')">Archive</button>`}
+            <button class="btn btn-danger btn-small" onclick="deleteMessage('${msg.id}')">Delete</button>
+            <a href="mailto:${escapeHtml(msg.email)}?subject=Re: ${escapeHtml(msg.subject)}" class="btn btn-secondary btn-small">Reply</a>
+          </div>
+        </div>
+      `;
+    }
+
+    async function markRead(id) {
+      await updateMessage(id, { read: true });
+    }
+
+    async function archive(id) {
+      await updateMessage(id, { archived: true });
+    }
+
+    async function unarchive(id) {
+      await updateMessage(id, { archived: false });
+    }
+
+    async function updateMessage(id, updates) {
+      const token = getToken();
+      try {
+        const response = await fetch(`/api/messages/${id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token, ...updates }),
+        });
+
+        if (!response.ok) throw new Error("Failed to update message");
+        showAlert("Message updated", "success");
+        await loadMessages();
+        await loadStats();
+      } catch (err) {
+        showAlert("Error: " + err.message, "error");
+      }
+    }
+
+    async function deleteMessage(id) {
+      if (!confirm("Are you sure you want to delete this message?")) return;
+
+      const token = getToken();
+      try {
+        const response = await fetch(`/api/messages/${id}`, {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token }),
+        });
+
+        if (!response.ok) throw new Error("Failed to delete message");
+        showAlert("Message deleted", "success");
+        await loadMessages();
+        await loadStats();
+      } catch (err) {
+        showAlert("Error: " + err.message, "error");
+      }
+    }
+
+    function filterMessages(filter) {
+      renderMessages(filter);
+    }
+
+    function escapeHtml(text) {
+      const map = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;",
+      };
+      return text.replace(/[&<>"']/g, (m) => map[m]);
+    }
+
+    // Check if user is already logged in
+    document.addEventListener("DOMContentLoaded", () => {
+      const token = getToken();
+      if (token) {
+        loadAdminDashboard();
+      }
+    });
+  </script>
+</body>
+</html>

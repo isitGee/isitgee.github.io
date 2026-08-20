@@ -1000,33 +1000,51 @@ function initContactForm() {
     }
 
     /* ---------------------------------------------------------------
-       BACKEND INTEGRATION POINT
-       This currently only simulates a send. To connect a real backend
-       (e.g. Formspree, EmailJS, or your own API), replace the
-       setTimeout block below with something like:
-
-       fetch("https://your-api.com/contact", {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify({
-           name: name.value, email: email.value,
-           subject: subject.value, message: message.value
-         })
-       }).then(...).catch(...)
+       BACKEND INTEGRATION
+       Sends the form data to the contact backend API
     --------------------------------------------------------------- */
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
     status.className = "form-status";
     status.textContent = "";
 
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send Message";
-      status.textContent =
-        "Message ready — connect a backend (see code comment) to actually deliver it.";
-      status.className = "form-status is-success";
-      form.reset();
-    }, 900);
+    // Determine the API endpoint based on environment
+    const API_URL =
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1"
+        ? "http://localhost:3000"
+        : window.location.origin; // For production on same domain
+
+    fetch(`${API_URL}/api/contact`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        subject: subject.value,
+        message: message.value,
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Server error. Try again later.");
+        return res.json();
+      })
+      .then((data) => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
+        status.textContent = data.message || "Message sent successfully!";
+        status.className = "form-status is-success";
+        form.reset();
+      })
+      .catch((err) => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
+        status.textContent =
+          "Error: " +
+          (err.message || "Failed to send. Please try again later.");
+        status.className = "form-status is-error";
+        console.error("Contact form error:", err);
+      });
   });
 }
 
