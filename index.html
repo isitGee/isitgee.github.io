@@ -35,11 +35,6 @@
     <!-- Scroll progress11 -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Custom cursor (desktop only, added via JS) -->
-    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
-    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-
     <!-- Ambient background -->
     <div class="bg-fx" aria-hidden="true">
       <canvas id="network-canvas"></canvas>
@@ -700,66 +695,6 @@
 
           <div class="contact-grid">
             <div class="contact-info glass" data-reveal id="contactInfo"></div>
-
-            <div
-              class="contact-form-card glass"
-              data-reveal
-              data-reveal-delay="2"
-            >
-              <form id="contactForm" novalidate>
-                <div class="field">
-                  <label for="cf-name">Name</label>
-                  <input
-                    type="text"
-                    id="cf-name"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                  />
-                  <span class="field-error">Please enter your name.</span>
-                </div>
-                <div class="field">
-                  <label for="cf-email">Email</label>
-                  <input
-                    type="email"
-                    id="cf-email"
-                    name="email"
-                    placeholder="you@example.com"
-                    required
-                  />
-                  <span class="field-error">Please enter a valid email.</span>
-                </div>
-                <div class="field">
-                  <label for="cf-subject">Subject</label>
-                  <input
-                    type="text"
-                    id="cf-subject"
-                    name="subject"
-                    placeholder="What's this about?"
-                    required
-                  />
-                  <span class="field-error">Please add a subject.</span>
-                </div>
-                <div class="field">
-                  <label for="cf-message">Message</label>
-                  <textarea
-                    id="cf-message"
-                    name="message"
-                    placeholder="Tell me a bit more..."
-                    required
-                  ></textarea>
-                  <span class="field-error">Please write a short message.</span>
-                </div>
-                <button
-                  type="submit"
-                  class="btn btn-primary btn-block"
-                  id="cfSubmit"
-                >
-                  Send Message
-                </button>
-                <p class="form-status" id="cfStatus" role="status"></p>
-              </form>
-            </div>
           </div>
         </div>
       </section>

@@ -795,64 +795,6 @@ function initReveal() {
   items.forEach((el) => io.observe(el));
 }
 
-/* --- Custom cursor + cursor glow + light parallax --- */
-function initCursorFX() {
-  const isFinePointer = window.matchMedia("(pointer: fine)").matches;
-  if (!isFinePointer || prefersReducedMotion()) return;
-
-  document.body.classList.add("has-custom-cursor");
-  const glow = $("#cursorGlow"),
-    dot = $("#cursorDot"),
-    ring = $("#cursorRing");
-  let mx = window.innerWidth / 2,
-    my = window.innerHeight / 2;
-  let rx = mx,
-    ry = my;
-
-  window.addEventListener("mousemove", (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-    glow.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%,-50%)`;
-    dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%,-50%)`;
-  });
-
-  const tick = () => {
-    rx += (mx - rx) * 0.16;
-    ry += (my - ry) * 0.16;
-    ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%,-50%)`;
-    requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-
-  $$("a, button, .tilt, input, textarea").forEach((el) => {
-    el.addEventListener("mouseenter", () => ring.classList.add("is-active"));
-    el.addEventListener("mouseleave", () => ring.classList.remove("is-active"));
-  });
-
-  // subtle tilt / parallax on glass cards
-  $$(".tilt").forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const r = card.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - 0.5;
-      const py = (e.clientY - r.top) / r.height - 0.5;
-      card.style.transform = `perspective(700px) rotateX(${(-py * 4).toFixed(2)}deg) rotateY(${(px * 4).toFixed(2)}deg) translateY(-4px)`;
-    });
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "";
-    });
-  });
-
-  // hero visual responds slightly to mouse
-  const heroVisual = $(".hero-visual");
-  if (heroVisual) {
-    document.addEventListener("mousemove", (e) => {
-      const px = e.clientX / window.innerWidth - 0.5;
-      const py = e.clientY / window.innerHeight - 0.5;
-      heroVisual.style.transform = `translate(${(px * 10).toFixed(1)}px, ${(py * 10).toFixed(1)}px)`;
-    });
-  }
-}
-
 /* --- Ambient network-topology canvas (signature background element) --- */
 function initNetworkCanvas() {
   const canvas = $("#network-canvas");
@@ -969,85 +911,6 @@ function initModals() {
   });
 }
 
-/* --- Contact form (frontend only — see comment for backend hookup) --- */
-function initContactForm() {
-  const form = $("#contactForm");
-  const status = $("#cfStatus");
-  const submitBtn = $("#cfSubmit");
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let valid = true;
-    const name = $("#cf-name"),
-      email = $("#cf-email"),
-      subject = $("#cf-subject"),
-      message = $("#cf-message");
-
-    [name, subject, message].forEach((f) => {
-      const wrap = f.closest(".field");
-      const ok = f.value.trim().length > 1;
-      wrap.classList.toggle("has-error", !ok);
-      if (!ok) valid = false;
-    });
-    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
-    email.closest(".field").classList.toggle("has-error", !emailOk);
-    if (!emailOk) valid = false;
-
-    if (!valid) {
-      status.textContent = "Please fix the highlighted fields.";
-      status.className = "form-status is-error";
-      return;
-    }
-
-    /* ---------------------------------------------------------------
-       BACKEND INTEGRATION
-       Sends the form data to the contact backend API
-    --------------------------------------------------------------- */
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
-    status.className = "form-status";
-    status.textContent = "";
-
-    // Determine the API endpoint based on environment
-    const API_URL =
-      window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1"
-        ? "http://localhost:3000"
-        : window.location.origin; // For production on same domain
-
-    fetch(`${API_URL}/api/contact`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: name.value,
-        email: email.value,
-        subject: subject.value,
-        message: message.value,
-      }),
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error("Server error. Try again later.");
-        return res.json();
-      })
-      .then((data) => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send Message";
-        status.textContent = data.message || "Message sent successfully!";
-        status.className = "form-status is-success";
-        form.reset();
-      })
-      .catch((err) => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send Message";
-        status.textContent =
-          "Error: " +
-          (err.message || "Failed to send. Please try again later.");
-        status.className = "form-status is-error";
-        console.error("Contact form error:", err);
-      });
-  });
-}
-
 /* =====================================================================
    INIT
    ===================================================================== */
@@ -1073,10 +936,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   initMobileMenu();
   initScrollProgress();
   initReveal();
-  initCursorFX();
   initNetworkCanvas();
   initModals();
-  initContactForm();
 
   // Re-layout badges on resize (debounced) so orientation changes / window
   // resizing keep the ring radius appropriate for the new viewport width.
