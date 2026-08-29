@@ -824,6 +824,13 @@
 
         updateSize();
         window.addEventListener('resize', updateSize);
+        // show the chatbot only after the page fully loads to avoid layout issues
+        window.addEventListener('load', function () {
+          // small delay so any initial layout settles
+          setTimeout(function () {
+            wrapper.classList.add('chatbot-visible');
+          }, 250);
+        });
       })();
     </script>
   </body>

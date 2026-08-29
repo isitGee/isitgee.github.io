@@ -1034,6 +1034,10 @@ textarea:focus-visible {
   margin-top: 24px;
   z-index: 10;
 }
+
+/* hide chatbot by default to avoid layout flash; add `.chatbot-visible` to show */
+.chatbot-wrapper { display: none; }
+.chatbot-wrapper.chatbot-visible { display: flex; }
 .chatbot-wrapper > zapier-interfaces-chatbot-embed {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-glass);
