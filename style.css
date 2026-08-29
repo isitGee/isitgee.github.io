@@ -1028,7 +1028,8 @@ textarea:focus-visible {
 /* ---------- Zapier Chatbot wrapper (theme-aware) ---------- */
 .chatbot-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: flex-start;
   padding: 48px 24px;
   margin-top: 24px;
   z-index: 10;

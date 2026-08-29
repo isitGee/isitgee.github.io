@@ -781,12 +781,24 @@
 
         wrapper.appendChild(embed);
 
-        const contactSection = document.getElementById('contact');
-        if (contactSection && contactSection.parentNode) {
-          contactSection.parentNode.insertBefore(wrapper, contactSection.nextSibling);
+        const contactGrid = document.querySelector('.contact-grid');
+        // Prefer inserting into the contact grid so it sits to the right on desktop
+        if (contactGrid) {
+          // insert after the contact-info element if present
+          const info = document.getElementById('contactInfo');
+          if (info && info.parentNode === contactGrid) {
+            info.insertAdjacentElement('afterend', wrapper);
+          } else {
+            contactGrid.appendChild(wrapper);
+          }
         } else {
-          // fallback: append near end of body
-          document.body.appendChild(wrapper);
+          // fallback: append after the contact section
+          const contactSection = document.getElementById('contact');
+          if (contactSection && contactSection.parentNode) {
+            contactSection.parentNode.insertBefore(wrapper, contactSection.nextSibling);
+          } else {
+            document.body.appendChild(wrapper);
+          }
         }
 
         // keep the chatbot look in sync with the site's theme attribute
