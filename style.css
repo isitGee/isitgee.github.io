@@ -1024,6 +1024,40 @@ textarea:focus-visible {
   gap: 8px;
   margin-bottom: 32px;
 }
+
+/* ---------- Zapier Chatbot wrapper (theme-aware) ---------- */
+.chatbot-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px;
+  margin-top: 24px;
+  z-index: 10;
+}
+.chatbot-wrapper > zapier-interfaces-chatbot-embed {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass);
+  overflow: hidden;
+  border: 1px solid var(--border-glass-strong);
+  background: var(--bg-elevated);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.chatbot-wrapper[data-theme="dark"] > zapier-interfaces-chatbot-embed {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+.chatbot-wrapper[data-theme="light"] > zapier-interfaces-chatbot-embed {
+  background: var(--bg-glass-strong);
+  border-color: rgba(24,29,45,0.06);
+}
+
+@media (max-width: 520px) {
+  .chatbot-wrapper {
+    padding: 24px 16px;
+  }
+  .chatbot-wrapper > zapier-interfaces-chatbot-embed {
+    width: 100% !important;
+    height: 420px !important;
+  }
+}
 .skills-tab {
   padding: 10px 18px;
   border-radius: var(--radius-full);

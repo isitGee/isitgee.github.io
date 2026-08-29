@@ -761,5 +761,58 @@
     >
       <div class="modal-box glass glass-strong" id="cmBox"></div>
     </div>
+    <!-- Zapier chatbot will be inserted just after the Contact section -->
+    <script>
+      (function () {
+        const chatbotId = 'cmsz5y3xi0035rvtzhwpkrms9';
+
+        // guard: don't insert twice
+        if (document.getElementById('zapierChatWrapper')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.id = 'zapierChatWrapper';
+        wrapper.className = 'chatbot-wrapper';
+
+        const embed = document.createElement('zapier-interfaces-chatbot-embed');
+        embed.setAttribute('is-popup', 'false');
+        embed.setAttribute('chatbot-id', chatbotId);
+        embed.style.width = '400px';
+        embed.style.height = '600px';
+
+        wrapper.appendChild(embed);
+
+        const contactSection = document.getElementById('contact');
+        if (contactSection && contactSection.parentNode) {
+          contactSection.parentNode.insertBefore(wrapper, contactSection.nextSibling);
+        } else {
+          // fallback: append near end of body
+          document.body.appendChild(wrapper);
+        }
+
+        // keep the chatbot look in sync with the site's theme attribute
+        function applyTheme() {
+          const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+          wrapper.dataset.theme = theme;
+        }
+
+        applyTheme();
+        const obs = new MutationObserver(applyTheme);
+        obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+        // responsive sizing
+        function updateSize() {
+          if (window.innerWidth < 520) {
+            embed.style.width = '100%';
+            embed.style.height = '420px';
+          } else {
+            embed.style.width = '400px';
+            embed.style.height = '600px';
+          }
+        }
+
+        updateSize();
+        window.addEventListener('resize', updateSize);
+      })();
+    </script>
   </body>
 </html>
